@@ -5,9 +5,7 @@ import { FileContext, QuizQuestion, QuizSettings, ChatMessage, MindMapNode } fro
 const getAI = () => {
   const apiKey = process.env.API_KEY;
   if (!apiKey) {
-    console.error("API Key is missing! Check your .env.local and vite.config.ts");
-  } else {
-    console.log("API Key is present:", apiKey.substring(0, 5) + "...");
+    console.error("API Key is missing! update the API key in the .env file");
   }
   return new GoogleGenAI({ apiKey });
 };

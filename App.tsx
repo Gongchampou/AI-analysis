@@ -1192,8 +1192,7 @@ const App: React.FC = () => {
                          <BrainCircuit size={80} className="relative text-anime-text-main drop-shadow-[0_0_15px_rgba(56,189,248,0.5)]" />
                     </div>
                     <div className="text-center space-y-2">
-                        <h2 className="text-4xl font-bold text-anime-text-main">Test Your Knowledge</h2>
-                        <p className="text-anime-text-muted">Configure your AI-powered quiz session.</p>
+                        <h2 className="text-3xl font-bold text-anime-text-main">Test Your Knowledge</h2>
                     </div>
                     
                     <Card className="w-full max-w-md bg-anime-surface/80 border-anime-primary/20">
@@ -1229,13 +1228,13 @@ const App: React.FC = () => {
                                         onClick={() => setQuizSettings(prev => ({...prev, type: 'multiple-choice'}))}
                                         className={`py-3 rounded-xl text-sm font-semibold transition-all border ${quizSettings.type === 'multiple-choice' ? 'bg-anime-primary/20 border-anime-primary text-anime-primary' : 'bg-anime-bg border-transparent text-anime-text-muted hover:text-anime-text-main'}`}
                                     >
-                                        Multiple Choice
+                                        Quiz
                                     </button>
                                     <button 
                                         onClick={() => setQuizSettings(prev => ({...prev, type: 'open-ended'}))}
                                         className={`py-3 rounded-xl text-sm font-semibold transition-all border ${quizSettings.type === 'open-ended' ? 'bg-anime-primary/20 border-anime-primary text-anime-primary' : 'bg-anime-bg border-transparent text-anime-text-muted hover:text-anime-text-main'}`}
                                     >
-                                        Open Ended
+                                        Question
                                     </button>
                                 </div>
                              </div>
