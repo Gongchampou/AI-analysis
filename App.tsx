@@ -1145,7 +1145,7 @@ const App: React.FC = () => {
                            </div>
                            {mindMapData.length > 0 && (
                              <div className="px-3 text-xs text-anime-text-muted flex items-center gap-1">
-                                <Move size={12} /> Drag to Pan
+                               {/*<Move size={12} />*/}
                              </div>
                            )}
                       </div>
@@ -1155,8 +1155,8 @@ const App: React.FC = () => {
                   {mindMapData.length === 0 && !loading ? (
                       <div className="flex flex-col items-center justify-center h-full text-anime-text-muted opacity-70">
                           <Workflow size={64} className="mb-4 text-anime-primary" />
-                          <h3 className="text-xl font-bold text-anime-text-main">Flashcard Workflow</h3>
-                          <p className="max-w-md text-center mt-2">Generate a hierarchical node graph (Parent → Child → Grandchild) to visualize concepts.</p>
+                          <h3 className="text-xl font-bold text-anime-text-main">Workflow: 2.5-F</h3>
+                          <p className="max-w-md text-center mt-2">Generate a hierarchical node graph to visualize concepts.</p>
                           <Button onClick={handleGenerateMindMap} className="mt-6">Create Graph</Button>
                       </div>
                   ) : (
