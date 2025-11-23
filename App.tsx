@@ -1398,7 +1398,7 @@ const App: React.FC = () => {
           
           {/* Confirmation Modal */}
           {showSubmitConfirm && (
-              <div className="absolute inset-0 z-50 flex items-center justify-center bg-anime-bg/80 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-anime-bg/80 backdrop-blur-sm p-4 animate-in fade-in duration-200">
                   <Card className="w-full max-w-sm border-anime-primary/50 shadow-2xl scale-100 animate-in zoom-in-95 duration-200">
                       <div className="text-center space-y-4">
                           <div className="w-16 h-16 bg-anime-primary/20 rounded-full flex items-center justify-center mx-auto text-anime-primary mb-2">
