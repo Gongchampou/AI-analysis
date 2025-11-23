@@ -210,7 +210,7 @@ export const generateQuizQuestions = async (
 
   const response = await ai.models.generateContent({
     //quiz quest model area
-    model: 'gemini-2.5-flash',
+    model: 'gemini-2.5-pro',
     contents: {
       parts: [
         { inlineData: { mimeType: file.mimeType, data: file.data } },
@@ -266,7 +266,7 @@ export const generateMindMap = async (file: FileContext): Promise<MindMapNode[]>
     // Note: For complex recursion, 'any' type or simplified prompt often works better with strict schema disabled or simple JSON.
     
     const response = await ai.models.generateContent({
-      //quiz quest model area
+      //Flash-card model area
         model: 'gemini-2.5-flash',
         contents: {
           parts: [

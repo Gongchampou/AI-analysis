@@ -116,7 +116,6 @@ const App: React.FC = () => {
 
   // Theme Effect
   useEffect(() => {
-    console.log(`Theme changing to: ${theme}`);
     document.documentElement.className = `theme-${theme} ${theme === 'dark' ? 'dark' : ''}`;
   }, [theme]);
 
@@ -134,13 +133,10 @@ const App: React.FC = () => {
 
   // Load state from sessionStorage on mount
   useEffect(() => {
-    console.log('🔄 Loading state from sessionStorage...');
     try {
       const savedState = sessionStorage.getItem('animind-state');
-      console.log('📦 Saved state:', savedState ? 'Found' : 'Not found');
       if (savedState) {
         const parsed = JSON.parse(savedState);
-        console.log('✅ Parsed state:', parsed);
         if (parsed.file) setFile(parsed.file);
         if (parsed.mode) setMode(parsed.mode);
         if (parsed.messages) setMessages(parsed.messages);
@@ -151,7 +147,7 @@ const App: React.FC = () => {
         if (parsed.mindMapData) setMindMapData(parsed.mindMapData);
       }
     } catch (e) {
-      console.error('❌ Failed to load session state:', e);
+      console.error('Failed to load session state:', e);
     }
   }, []);
 
@@ -160,7 +156,6 @@ const App: React.FC = () => {
     // Don't save if we're still on initial load (no file uploaded yet)
     if (!file) return;
     
-    console.log('💾 Saving state to sessionStorage...');
     try {
       const state = {
         file,
@@ -173,9 +168,8 @@ const App: React.FC = () => {
         mindMapData
       };
       sessionStorage.setItem('animind-state', JSON.stringify(state));
-      console.log('✅ State saved successfully');
     } catch (e) {
-      console.error('❌ Failed to save session state:', e);
+      console.error('Failed to save session state:', e);
     }
   }, [file, mode, messages, quizQuestions, quizPhase, quizStartTime, quizSettings, mindMapData]);
 
