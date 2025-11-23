@@ -132,6 +132,53 @@ const App: React.FC = () => {
     return () => clearInterval(interval);
   }, [quizPhase, quizStartTime]);
 
+  // Load state from sessionStorage on mount
+  useEffect(() => {
+    console.log('🔄 Loading state from sessionStorage...');
+    try {
+      const savedState = sessionStorage.getItem('animind-state');
+      console.log('📦 Saved state:', savedState ? 'Found' : 'Not found');
+      if (savedState) {
+        const parsed = JSON.parse(savedState);
+        console.log('✅ Parsed state:', parsed);
+        if (parsed.file) setFile(parsed.file);
+        if (parsed.mode) setMode(parsed.mode);
+        if (parsed.messages) setMessages(parsed.messages);
+        if (parsed.quizQuestions) setQuizQuestions(parsed.quizQuestions);
+        if (parsed.quizPhase) setQuizPhase(parsed.quizPhase);
+        if (parsed.quizStartTime) setQuizStartTime(parsed.quizStartTime);
+        if (parsed.quizSettings) setQuizSettings(parsed.quizSettings);
+        if (parsed.mindMapData) setMindMapData(parsed.mindMapData);
+      }
+    } catch (e) {
+      console.error('❌ Failed to load session state:', e);
+    }
+  }, []);
+
+  // Save state to sessionStorage when key state changes
+  useEffect(() => {
+    // Don't save if we're still on initial load (no file uploaded yet)
+    if (!file) return;
+    
+    console.log('💾 Saving state to sessionStorage...');
+    try {
+      const state = {
+        file,
+        mode,
+        messages,
+        quizQuestions,
+        quizPhase,
+        quizStartTime,
+        quizSettings,
+        mindMapData
+      };
+      sessionStorage.setItem('animind-state', JSON.stringify(state));
+      console.log('✅ State saved successfully');
+    } catch (e) {
+      console.error('❌ Failed to save session state:', e);
+    }
+  }, [file, mode, messages, quizQuestions, quizPhase, quizStartTime, quizSettings, mindMapData]);
+
   const cycleTheme = () => {
     setTheme(prev => {
       if (prev === 'dark') return 'light';
@@ -620,7 +667,15 @@ const App: React.FC = () => {
             icon={XCircle} 
             label="Reset File" 
             isActive={false}
-            onClick={() => { setFile(null); setPreviewFile(null); setMode(AppMode.UPLOAD); setMessages([]); resetQuiz(); setMindMapData([]); }}
+            onClick={() => { 
+              sessionStorage.removeItem('animind-state'); // Clear session storage
+              setFile(null); 
+              setPreviewFile(null); 
+              setMode(AppMode.UPLOAD); 
+              setMessages([]); 
+              resetQuiz(); 
+              setMindMapData([]); 
+            }}
             colorClass="border-red-400 text-red-400 hover:bg-red-400/10"
          />
       </div>
