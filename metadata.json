@@ -1,0 +1,5 @@
+{
+  "name": "AniMind - Intelligent Document Analyst",
+  "description": "A powerful, anime-inspired AI workspace for document analysis, summarization, and quiz generation using Gemini 3 Pro.",
+  "requestFramePermissions": []
+}

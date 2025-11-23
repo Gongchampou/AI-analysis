@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Default Dark (Anime) */
+    --bg-rgb: 15 23 42; /* #0f172a - Slate 950 */
+    --surface-rgb: 30 41 59; /* #1e293b - Slate 800 */
+    --primary-rgb: 244 114 182; /* #f472b6 - Pink 400 */
+    --secondary-rgb: 139 92 246; /* #8b5cf6 - Violet 500 */
+    --accent-rgb: 56 189 248; /* #38bdf8 - Sky 400 */
+    --text-main-rgb: 248 250 252; /* #f8fafc - Slate 50 */
+    --text-muted-rgb: 148 163 184; /* #94a3b8 - Slate 400 */
+    --border-rgb: 255 255 255;
+  }
+
+  body {
+    background-color: rgb(var(--bg-rgb));
+    color: rgb(var(--text-main-rgb));
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+}
+
+:root.theme-light {
+  --bg-rgb: 241 245 249; /* #f1f5f9 - Slate 100 */
+  --surface-rgb: 255 255 255; /* #ffffff */
+  --primary-rgb: 219 39 119; /* #db2777 - Pink 600 */
+  --secondary-rgb: 124 58 237; /* #7c3aed - Violet 600 */
+  --accent-rgb: 2 132 199; /* #0284c7 - Sky 600 */
+  --text-main-rgb: 15 23 42; /* #0f172a - Slate 900 */
+  --text-muted-rgb: 71 85 105; /* #475569 - Slate 600 */
+  --border-rgb: 15 23 42;
+}
+
+:root.theme-read {
+  --bg-rgb: 253 246 227; /* #fdf6e3 - Solarized Base3 */
+  --surface-rgb: 238 232 213; /* #eee8d5 - Solarized Base2 */
+  --primary-rgb: 211 54 130; /* #d33682 - Magenta */
+  --secondary-rgb: 108 113 196; /* #6c71c4 - Violet */
+  --accent-rgb: 38 139 210; /* #268bd2 - Blue */
+  --text-main-rgb: 67 62 56; /* #433e38 - Dark warm grey */
+  --text-muted-rgb: 101 123 131; /* #657b83 - Solarized Base00 */
+  --border-rgb: 88 110 117;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
