@@ -146,6 +146,8 @@ const App: React.FC = () => {
   const [mindMapData, setMindMapData] = useState<MindMapNode[]>([]);
   const [lineStyle, setLineStyle] = useState<'straight' | 'curved' | 'step'>('step');
   const [scale, setScale] = useState(1);
+  const [previewScale, setPreviewScale] = useState(1);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
@@ -844,7 +846,7 @@ const App: React.FC = () => {
                                 className="max-w-full max-h-full object-contain" 
                             />
                         </div>
-                    ) : previewFile.mimeType === 'text/plain' ? (
+                    ) : previewFile.mimeType === 'text/plain' || previewFile.name.match(/\.(md|json|ts|tsx|js|jsx|py|html|css)$/i) ? (
                         <div className="w-full h-full overflow-auto p-10 bg-white text-slate-900 font-mono text-base whitespace-pre-wrap leading-relaxed">
                             {atob(previewFile.data)}
                         </div>
@@ -974,6 +976,11 @@ const App: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-4">
+             {mode === AppMode.ANALYSIS && file && (
+                <Button onClick={() => setIsPreviewOpen(true)} className="gap-2 shadow-md bg-anime-accent hover:bg-anime-accent/80 text-white border-none rounded-full px-4">
+                    <Eye size={16} /> Preview Source
+                </Button>
+             )}
              <Badge>{mode}</Badge>
              <div className="relative">
                  <button 
@@ -1061,26 +1068,8 @@ const App: React.FC = () => {
                         </div>
                       </Card>
 
-                      {/* Visual Context */}
-                      <div className="flex flex-col md:flex-row gap-6">
-                          <div className="flex-1">
-                             <Card className="h-full border-anime-border/5">
-                                <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-anime-accent">
-                                  <ImageIcon size={20} /> Visual Source
-                                </h3>
-                                <div className="rounded-xl overflow-hidden border border-anime-border/10 bg-black/5 flex items-center justify-center min-h-[200px]">
-                                    {file.mimeType.startsWith('image') ? (
-                                        <img src={`data:${file.mimeType};base64,${file.data}`} alt="source" className="max-h-64 object-contain" />
-                                    ) : (
-                                        <div className="text-center p-8">
-                                            <FileText size={48} className="mx-auto text-anime-text-muted mb-2"/>
-                                            <p className="text-anime-text-muted text-sm">Document Preview Not Available</p>
-                                        </div>
-                                    )}
-                                </div>
-                             </Card>
-                          </div>
-                      </div>
+                      {/* Visual Context - REMOVED (Moved to Overlay) */}
+                      {/* <div className="flex flex-col md:flex-row gap-6"> ... </div> */}
 
                       {/* Sections Loop */}
                       <div className="space-y-4">
@@ -1624,6 +1613,59 @@ const App: React.FC = () => {
           )}
 
         </div>
+        {/* Preview Overlay */}
+        {isPreviewOpen && file && (
+            <div className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 animate-in fade-in duration-200">
+                <div className="bg-anime-surface w-full max-w-6xl h-full max-h-full rounded-2xl shadow-2xl border border-anime-border/20 flex flex-col overflow-hidden relative">
+                    {/* Header */}
+                    <div className="flex items-center justify-between p-4 border-b border-anime-border/10 bg-anime-surface/50 backdrop-blur">
+                        <h3 className="font-bold text-lg flex items-center gap-2 text-anime-text-main">
+                            <Eye size={18} className="text-anime-accent"/> Visual Source Preview
+                        </h3>
+                        <div className="flex items-center gap-2">
+                             <div className="flex items-center gap-1 bg-anime-bg/50 p-1 rounded-lg border border-anime-border/10 mr-4">
+                                <button onClick={() => setPreviewScale(s => Math.max(0.5, s - 0.1))} className="p-1.5 hover:bg-anime-border/10 rounded text-anime-text-muted hover:text-anime-text-main"><ZoomOut size={16}/></button>
+                                <span className="text-xs w-12 text-center font-mono">{Math.round(previewScale * 100)}%</span>
+                                <button onClick={() => setPreviewScale(s => Math.min(3, s + 0.1))} className="p-1.5 hover:bg-anime-border/10 rounded text-anime-text-muted hover:text-anime-text-main"><ZoomIn size={16}/></button>
+                                <button onClick={() => setPreviewScale(1)} className="p-1.5 hover:bg-anime-border/10 rounded text-anime-text-muted hover:text-anime-text-main text-xs font-bold px-2">Reset</button>
+                            </div>
+                            <button 
+                                onClick={() => setIsPreviewOpen(false)}
+                                className="p-2 hover:bg-red-500/10 text-anime-text-muted hover:text-red-500 rounded-full transition-colors"
+                            >
+                                <XCircle size={24} />
+                            </button>
+                        </div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="flex-1 overflow-auto bg-black/5 p-4 flex items-start justify-center relative">
+                         <div style={{ width: `${previewScale * 100}%`, transition: 'width 0.2s ease-out' }} className="flex flex-col items-center justify-center min-h-full">
+                            {file.mimeType === 'application/pdf' ? (
+                                <iframe 
+                                    src={`data:application/pdf;base64,${file.data}`} 
+                                    className="w-full min-h-[80vh] bg-white rounded-lg shadow-lg" 
+                                    style={{ height: `${80 * previewScale}vh` }}
+                                    title="PDF Source"
+                                />
+                            ) : file.mimeType.startsWith('image/') ? (
+                                <img src={`data:${file.mimeType};base64,${file.data}`} alt="source" className="w-full h-auto object-contain shadow-lg rounded-lg" />
+                            ) : file.mimeType.startsWith('text/') || file.name.match(/\.(md|json|ts|tsx|js|jsx|py|html|css)$/i) ? (
+                                <div className="bg-white text-slate-900 p-10 rounded-lg shadow-lg w-full font-mono text-sm whitespace-pre-wrap leading-relaxed">
+                                    {atob(file.data)}
+                                </div>
+                            ) : (
+                                <div className="text-center p-10 bg-anime-surface rounded-2xl border border-anime-border/10 shadow-xl w-full">
+                                    <FileText size={64} className="mx-auto text-anime-text-muted mb-4 opacity-50"/>
+                                    <h3 className="text-xl font-bold text-anime-text-main mb-2">Preview Not Available</h3>
+                                    <p className="text-anime-text-muted">This file type cannot be previewed directly.</p>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )}
       </main>
     </div>
   );

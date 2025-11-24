@@ -17,7 +17,7 @@ A powerful AI-powered document analysis and learning platform built with React, 
 - **Sectioned Analysis**: Documents automatically broken down into logical sections
 - **Table of Contents**: Interactive navigation for long documents
 
-**AI Model**: `gemini-1.5-flash` (Fast, efficient document processing)
+**AI Model**: `gemini-2.5-Pro` (Fast, efficient document processing)
 
 ### 💬 Interactive Chat
 
@@ -27,7 +27,7 @@ A powerful AI-powered document analysis and learning platform built with React, 
 - **Source Citations**: Grounded answers with clickable source links
 - **Markdown Support**: Rich text formatting in responses
 
-**AI Model**: `gemini-1.5-pro` (Advanced reasoning and conversation)
+**AI Model**: `gemini-2.5-Pro` (Advanced reasoning and conversation)
 
 ### 📝 Smart Quizzes
 
@@ -38,7 +38,7 @@ A powerful AI-powered document analysis and learning platform built with React, 
 - **Instant Feedback**: See scores and correct answers immediately
 - **Retry Option**: Take quizzes multiple times to improve
 
-**AI Model**: `gemini-1.5-flash` (Quick quiz generation)
+**AI Model**: `gemini-2.5-Pro` (Quick quiz generation)
 
 ### 🎴 Flashcards
 
@@ -48,7 +48,7 @@ A powerful AI-powered document analysis and learning platform built with React, 
 - **Shuffle Option**: Randomize card order for better retention
 - **Smart Pacing**: Navigate through cards at your own speed
 
-**AI Model**: `gemini-1.5-flash` (Efficient Q&A pair generation)
+**AI Model**: `gemini-2.5-Pro` (Efficient Q&A pair generation)
 
 ### 🎨 Themes
 
@@ -107,7 +107,7 @@ Five beautiful themes to match your preference:
 
 5. **Open your browser**
 
-   Navigate to `http://localhost:5173`
+   Navigate to `http://localhost:1111`
 
 ## 🏗️ Build for Production
 
@@ -161,14 +161,14 @@ Navigate using the sidebar:
 
 | Feature           | Model              | Reason                                                      |
 | ----------------- | ------------------ | ----------------------------------------------------------- |
-| Document Analysis | `gemini-1.5-flash` | Fast processing for text extraction and summarization       |
-| Chat              | `gemini-1.5-pro`   | Advanced reasoning for complex conversations and follow-ups |
-| Quiz Generation   | `gemini-1.5-flash` | Quick generation of questions with good quality             |
-| Flashcards        | `gemini-1.5-flash` | Efficient Q&A pair creation                                 |
+| Document Analysis | `gemini-2.5-pro` | Fast processing for text extraction and summarization       |
+| Chat              | `gemini-2.5-pro`   | Advanced reasoning for complex conversations and follow-ups |
+| Quiz Generation   | `gemini-2.5-pro` | Quick generation of questions with good quality             |
+| Flashcards        | `gemini-2.5-pro` | Efficient Q&A pair creation                                 |
 
 **Why these choices?**
 
-- **Flash**: Optimized for speed and cost-efficiency on straightforward tasks
+- **Pro**: Optimized for speed and cost-efficiency on straightforward tasks
 - **Pro**: Reserved for complex reasoning that benefits from advanced capabilities
 
 ## 🔒 Privacy & Security
@@ -194,8 +194,10 @@ This project is licensed under the MIT License.
 
 ## 📧 Contact
 
-For questions or support, please open an issue on GitHub.
+- For questions or support, please open an issue on GitHub.
+
+- [Email](mailto:gongchampou9402@gmail.com)
 
 ---
 
-**Made with ❤️ by the Ani-Mind Team**
+**Made with ❤️ by the Gongchampou**

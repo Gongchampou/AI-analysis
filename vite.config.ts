@@ -11,7 +11,12 @@ export default defineConfig(({ mode }) => {
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
     customLogger: {
-      info: () => {}, // Suppress info messages (like HMR updates)
+      info: (msg) => {
+        // Use regex to match keywords even if there are color codes
+        if (/Local:|Network:|ready in|http:/i.test(msg)) {
+          console.info(msg);
+        }
+      }, // Suppress other info messages (like HMR updates)
       warn: console.warn, // Keep warnings
       error: console.error, // Keep errors
       clearScreen: () => false,
