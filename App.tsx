@@ -556,7 +556,8 @@ const App: React.FC = () => {
         setExpandedSections(prev => new Set(prev).add(index));
     }
   };
-
+  //nav side bar
+  //============================================================================================
   // --- Helper Components ---
   const SidebarItem = ({ 
     icon: Icon, 
@@ -595,7 +596,7 @@ const App: React.FC = () => {
 
   const renderSidebar = () => (
     <div 
-        className={`${isSidebarCollapsed ? 'w-20' : 'w-60'} bg-anime-surface border-r border-anime-border/20 flex flex-col py-6 gap-2 z-30 shrink-0 shadow-2xl transition-[width] duration-300 ease-in-out relative`}
+        className={`${isSidebarCollapsed ? 'w-20' : 'w-60'} bg-anime-surface border-r-[3px] border-anime-border/40 flex flex-col py-6 gap-2 z-50 shrink-0 shadow-3xl transition-[width] duration-300 ease-in-out relative`}
     >
       {/* Toggle Button */}
       <button 
@@ -675,6 +676,7 @@ const App: React.FC = () => {
       </div>
     </div>
   );
+  //============================================================================================//
 
   // --- Main Content Renders ---
   //=======================================================================================//
