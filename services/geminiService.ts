@@ -139,7 +139,7 @@ export const sendMessageToGemini = async (
 //model fot chatting i put 2.5 flash
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-pro',
+      model: 'gemini-2.5-flash',
       contents: contents,
       config: {
         systemInstruction: systemInstruction,
