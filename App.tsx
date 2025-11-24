@@ -1300,6 +1300,85 @@ const App: React.FC = () => {
                           <p className="max-w-md text-center mt-2">Generate a hierarchical node graph to visualize concepts.</p>
                           <Button onClick={handleGenerateMindMap} className="mt-6">Create Graph</Button>
                       </div>
+                  ) : mindMapData.length === 0 && loading ? (
+                      <div className="flex flex-col items-center justify-center h-full relative overflow-hidden">
+                          {/* Ambient Background */}
+                          <div className="absolute inset-0 bg-gradient-to-b from-anime-bg via-anime-surface/30 to-anime-bg pointer-events-none"></div>
+                          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-anime-primary/10 rounded-full blur-[120px] animate-pulse"></div>
+                          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-anime-secondary/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+                          
+                          {/* Central Animation Container */}
+                          <div className="relative w-80 h-80 flex items-center justify-center mb-8 z-10">
+                              {/* Central Core - Pulsing */}
+                              <div className="absolute inset-0 m-auto w-32 h-32 rounded-full bg-gradient-to-br from-anime-primary/30 to-anime-secondary/30 backdrop-blur-xl border border-anime-border/20 flex items-center justify-center shadow-2xl animate-pulse">
+                                  <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-anime-primary to-anime-secondary flex items-center justify-center">
+                                      <BrainCircuit size={48} className="text-white animate-pulse" />
+                                  </div>
+                              </div>
+                              
+                              {/* Orbiting Satellite Nodes */}
+                              <div className="absolute inset-0 animate-spin" style={{ animationDuration: '8s' }}>
+                                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-lg bg-anime-surface border-2 border-anime-primary shadow-lg shadow-anime-primary/50 flex items-center justify-center">
+                                      <div className="w-2 h-2 rounded-full bg-anime-primary"></div>
+                                  </div>
+                              </div>
+                              
+                              <div className="absolute inset-0 animate-spin" style={{ animationDuration: '6s', animationDirection: 'reverse' }}>
+                                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-12 h-12 rounded-lg bg-anime-surface border-2 border-anime-secondary shadow-lg shadow-anime-secondary/50 flex items-center justify-center">
+                                      <div className="w-2 h-2 rounded-full bg-anime-secondary"></div>
+                                  </div>
+                              </div>
+                              
+                              <div className="absolute inset-0 animate-spin" style={{ animationDuration: '10s' }}>
+                                  <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-lg bg-anime-surface border-2 border-anime-accent shadow-lg shadow-anime-accent/50 flex items-center justify-center">
+                                      <div className="w-2 h-2 rounded-full bg-anime-accent"></div>
+                                  </div>
+                              </div>
+                              
+                              <div className="absolute inset-0 animate-spin" style={{ animationDuration: '7s', animationDirection: 'reverse' }}>
+                                  <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-lg bg-anime-surface border-2 border-purple-500 shadow-lg shadow-purple-500/50 flex items-center justify-center">
+                                      <div className="w-2 h-2 rounded-full bg-purple-500"></div>
+                                  </div>
+                              </div>
+                              
+                              {/* Connecting Lines */}
+                              <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
+                                  <line x1="50%" y1="50%" x2="50%" y2="0%" stroke="url(#gradient1)" strokeWidth="2" strokeDasharray="4,4" className="animate-pulse" />
+                                  <line x1="50%" y1="50%" x2="50%" y2="100%" stroke="url(#gradient2)" strokeWidth="2" strokeDasharray="4,4" className="animate-pulse" />
+                                  <line x1="50%" y1="50%" x2="0%" y2="50%" stroke="url(#gradient3)" strokeWidth="2" strokeDasharray="4,4" className="animate-pulse" />
+                                  <line x1="50%" y1="50%" x2="100%" y2="50%" stroke="url(#gradient4)" strokeWidth="2" strokeDasharray="4,4" className="animate-pulse" />
+                                  <defs>
+                                      <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                          <stop offset="0%" stopColor="rgb(var(--primary-rgb))" />
+                                          <stop offset="100%" stopColor="transparent" />
+                                      </linearGradient>
+                                      <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                          <stop offset="0%" stopColor="rgb(var(--secondary-rgb))" />
+                                          <stop offset="100%" stopColor="transparent" />
+                                      </linearGradient>
+                                      <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                                          <stop offset="0%" stopColor="rgb(var(--accent-rgb))" />
+                                          <stop offset="100%" stopColor="transparent" />
+                                      </linearGradient>
+                                      <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="0%">
+                                          <stop offset="0%" stopColor="rgb(148, 0, 211)" />
+                                          <stop offset="100%" stopColor="transparent" />
+                                      </linearGradient>
+                                  </defs>
+                              </svg>
+                          </div>
+                          
+                          {/* Text */}
+                          <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-anime-primary via-anime-secondary to-anime-accent tracking-wide uppercase animate-pulse mb-2 z-10">
+                              Generating Graph
+                          </h3>
+                          <p className="text-anime-text-muted font-mono text-sm z-10">{loadingText}</p>
+                          
+                          {/* Cycling Status Messages */}
+                          <div className="mt-4 text-xs text-anime-accent/70 animate-pulse z-10">
+                              Analyzing document structure...
+                          </div>
+                      </div>
                   ) : (
                     <div 
                         className="flex-1 overflow-hidden cursor-grab active:cursor-grabbing bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-anime-surface/30 to-anime-bg relative"
