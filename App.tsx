@@ -1266,7 +1266,7 @@ const App: React.FC = () => {
                         {loading ? (
                             <Loader2 size={20} className="animate-spin" />
                         ) : (
-                            <Send size={20} fill="currentColor" className="ml-0.5 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+                            <ArrowRight size={20} className="ml-0.5 group-hover:translate-x-1 transition-transform" />
                         )}
                       </button>
                    </div>
