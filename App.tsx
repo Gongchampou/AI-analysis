@@ -851,7 +851,7 @@ const App: React.FC = () => {
         {/* Header */}
         <header className="h-16 border-b-[3px] border-anime-border/40 bg-anime-surface/80 backdrop-blur-md flex items-center justify-between px-8 z-10 shrink-0 transition-colors duration-500">
           <div className="flex items-center gap-4 overflow-hidden">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-anime-primary to-anime-secondary flex items-center justify-center shrink-0 shadow-lg">
+            <div className="header-icon-box w-10 h-10 rounded-lg bg-gradient-to-br from-anime-primary to-anime-secondary flex items-center justify-center shrink-0 shadow-lg">
                <FileType className="text-white" size={20} />
             </div>
             <div className="flex flex-col min-w-0">
