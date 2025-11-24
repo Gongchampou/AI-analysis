@@ -876,13 +876,13 @@ const App: React.FC = () => {
              <div className="relative">
                  <button 
                     onClick={() => setIsThemeDropdownOpen(!isThemeDropdownOpen)} 
-                    className="p-3 rounded-full bg-anime-surface border border-anime-border/10 hover:bg-anime-border/20 transition-colors shadow-xl flex items-center justify-center"
+                    className="p-3 rounded-full bg-anime-surface border border-anime-border/10 hover:bg-anime-border/20 hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-xl flex items-center justify-center group"
                  >
-                     {theme === 'dark' && <Moon size={24} className="text-anime-accent" />}
-                     {theme === 'light' && <Sun size={24} className="text-orange-500" />}
-                     {theme === 'read' && <BookOpen size={24} className="text-amber-700" />}
-                     {theme === 'black' && <div className="w-[24px] h-[24px] rounded-full bg-black border border-white/20" />}
-                     {theme === 'white' && <div className="w-[24px] h-[24px] rounded-full bg-white border border-black/20" />}
+                     {theme === 'dark' && <Moon size={24} className="text-anime-accent transition-transform group-hover:rotate-12" />}
+                     {theme === 'light' && <Sun size={24} className="text-orange-500 transition-transform group-hover:rotate-90" />}
+                     {theme === 'read' && <BookOpen size={24} className="text-amber-700 transition-transform group-hover:-rotate-12" />}
+                     {theme === 'black' && <div className="w-[24px] h-[24px] rounded-full bg-black border border-white/20 transition-transform group-hover:scale-125" />}
+                     {theme === 'white' && <div className="w-[24px] h-[24px] rounded-full bg-white border border-black/20 transition-transform group-hover:scale-125" />}
                  </button>
 
                  {isThemeDropdownOpen && (
