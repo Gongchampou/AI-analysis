@@ -621,16 +621,16 @@ const App: React.FC = () => {
       className={`
         relative group flex items-center gap-3 p-3 rounded-xl transition-all duration-200
         ${isActive 
-          ? `bg-gradient-to-r from-anime-primary/20 to-anime-secondary/20 text-anime-text-main border-l-4 ${colorClass}` 
+          ? `bg-gradient-to-r from-anime-primary/20 to-anime-secondary/20 ${theme === 'black' || theme === 'white' ? 'text-green-400' : 'text-anime-text-main'} border-l-4 ${colorClass}` 
           : 'text-anime-text-muted hover:bg-anime-border/5 hover:text-anime-text-main'
         }
         ${isSidebarCollapsed ? 'justify-center' : ''}
       `}
     >
-      <Icon size={20} className={`${isActive ? colorClass.replace('border-', 'text-') : ''} shrink-0 transition-colors`} /> 
+      <Icon size={20} className={`${isActive ? (theme === 'black' || theme === 'white' ? 'text-green-400' : colorClass.replace('border-', 'text-')) : ''} shrink-0 transition-colors`} style={isActive && (theme === 'black' || theme === 'white') ? { color: '#4ade80' } : {}} /> 
       
       {!isSidebarCollapsed && (
-        <span className="font-medium truncate animate-in fade-in duration-200">{label}</span>
+        <span className="font-medium truncate animate-in fade-in duration-200" style={isActive && (theme === 'black' || theme === 'white') ? { color: '#4ade80' } : {}}>{label}</span>
       )}
 
       {/* Tooltip for collapsed state */}

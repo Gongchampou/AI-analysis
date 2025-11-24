@@ -10,5 +10,14 @@ export default defineConfig(({ mode }) => {
       // Polyfill process.env.API_KEY for compatibility with your existing code
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
+    customLogger: {
+      info: () => {}, // Suppress info messages (like HMR updates)
+      warn: console.warn, // Keep warnings
+      error: console.error, // Keep errors
+      clearScreen: () => false,
+      hasErrorLogged: () => false,
+      hasWarned: false,
+      warnOnce: console.warn,
+    },
   };
 });
