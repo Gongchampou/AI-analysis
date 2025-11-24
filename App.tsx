@@ -1195,7 +1195,7 @@ const App: React.FC = () => {
 
               {/* Input Area */}
               <div className="p-4 md:p-6 bg-gradient-to-t from-anime-bg via-anime-bg to-transparent z-10 shrink-0">
-                <div className="bg-anime-surface/90 backdrop-blur-xl rounded-3xl border border-anime-border/20 shadow-2xl relative flex flex-col overflow-hidden transition-all duration-300 hover:border-anime-border/40 focus-within:border-anime-primary/50 focus-within:shadow-[0_0_20px_rgba(244,114,182,0.15)]">
+                <div className="bg-anime-surface/90 backdrop-blur-xl rounded-3xl border border-anime-border/20 shadow-2xl relative flex flex-col overflow-hidden transition-all duration-300 hover:border-anime-border/40">
                    
                    {/* Tools Bar */}
                    <div className="flex items-center justify-between px-5 py-2.5 bg-anime-bg/30 border-b border-anime-border/20">
@@ -1248,7 +1248,7 @@ const App: React.FC = () => {
                                 }
                             }}
                             placeholder="Ask a question or type 'quiz'..."
-                            className="w-full bg-transparent border-none focus:ring-0 text-anime-text-main placeholder-anime-text-muted resize-none max-h-32 py-3 text-sm md:text-base leading-relaxed scrollbar-hide"
+                            className="w-full bg-transparent border-none focus:ring-0 focus:outline-none text-anime-text-main placeholder-anime-text-muted resize-none max-h-32 py-3 text-sm md:text-base leading-relaxed scrollbar-hide"
                             rows={1}
                             style={{ minHeight: '48px' }}
                         />
