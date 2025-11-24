@@ -68,16 +68,63 @@ const PremiumLoader = ({ text }: { text: string }) => (
 );
 
 const App: React.FC = () => {
-  const [mode, setMode] = useState<AppMode>(AppMode.UPLOAD);
-  const [file, setFile] = useState<FileContext | null>(null);
+  const [mode, setMode] = useState<AppMode>(() => {
+    try {
+      const saved = sessionStorage.getItem('appMode');
+      return (saved as AppMode) || AppMode.UPLOAD;
+    } catch (e) {
+      return AppMode.UPLOAD;
+    }
+  });
+  
+  const [file, setFile] = useState<FileContext | null>(() => {
+    try {
+      const saved = sessionStorage.getItem('fileContext');
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      return null;
+    }
+  });
+  
   const [previewFile, setPreviewFile] = useState<FileContext | null>(null); // New state for preview
   const [loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("");
-  const [theme, setTheme] = useState<Theme>('dark');
+  const [theme, setTheme] = useState<Theme>(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return (savedTheme as Theme) || 'dark';
+  });
   const [isThemeDropdownOpen, setIsThemeDropdownOpen] = useState(false);
   
   // Sidebar State
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(() => {
+    try {
+      const saved = localStorage.getItem('sidebarCollapsed');
+      return saved ? JSON.parse(saved) : false;
+    } catch (e) {
+      return false;
+    }
+  });
+
+  // Persistence Effects
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  useEffect(() => {
+    localStorage.setItem('sidebarCollapsed', JSON.stringify(isSidebarCollapsed));
+  }, [isSidebarCollapsed]);
+
+  useEffect(() => {
+    sessionStorage.setItem('appMode', mode);
+  }, [mode]);
+
+  useEffect(() => {
+    if (file) {
+      sessionStorage.setItem('fileContext', JSON.stringify(file));
+    } else {
+      sessionStorage.removeItem('fileContext');
+    }
+  }, [file]);
 
   // Chat State
   const [messages, setMessages] = useState<ChatMessage[]>([]);

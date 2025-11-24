@@ -8,6 +8,13 @@
     <meta name="description" content="AniMind - AI Document Analyst" />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/index.css" />
+    <script>
+      // Apply theme immediately to prevent flash
+      (function() {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.className = 'theme-' + savedTheme;
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
