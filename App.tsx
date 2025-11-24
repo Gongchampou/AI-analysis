@@ -74,6 +74,7 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("");
   const [theme, setTheme] = useState<Theme>('dark');
+  const [isThemeDropdownOpen, setIsThemeDropdownOpen] = useState(false);
   
   // Sidebar State
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -860,15 +861,46 @@ const App: React.FC = () => {
                </span>
             </div>
           </div>
+
           <div className="flex items-center gap-4">
              <Badge>{mode}</Badge>
-             <button onClick={cycleTheme} className="p-2.5 rounded-full bg-anime-surface border border-anime-border/10 hover:bg-anime-border/20 transition-colors shadow-sm">
-                 {theme === 'dark' && <Moon size={18} className="text-anime-accent" />}
-                 {theme === 'light' && <Sun size={18} className="text-orange-500" />}
-                 {theme === 'read' && <BookOpen size={18} className="text-amber-700" />}
-                 {theme === 'black' && <div className="w-[18px] h-[18px] rounded-full bg-black border border-white/20" />}
-                 {theme === 'white' && <div className="w-[18px] h-[18px] rounded-full bg-white border border-black/20" />}
-             </button>
+             <div className="relative">
+                 <button 
+                    onClick={() => setIsThemeDropdownOpen(!isThemeDropdownOpen)} 
+                    className="p-2.5 rounded-full bg-anime-surface border border-anime-border/10 hover:bg-anime-border/20 transition-colors shadow-sm flex items-center justify-center"
+                 >
+                     {theme === 'dark' && <Moon size={18} className="text-anime-accent" />}
+                     {theme === 'light' && <Sun size={18} className="text-orange-500" />}
+                     {theme === 'read' && <BookOpen size={18} className="text-amber-700" />}
+                     {theme === 'black' && <div className="w-[18px] h-[18px] rounded-full bg-black border border-white/20" />}
+                     {theme === 'white' && <div className="w-[18px] h-[18px] rounded-full bg-white border border-black/20" />}
+                 </button>
+
+                 {isThemeDropdownOpen && (
+                     <>
+                        <div className="fixed inset-0 z-40" onClick={() => setIsThemeDropdownOpen(false)}></div>
+                        <div className="absolute right-0 top-full mt-2 w-32 bg-anime-surface/90 backdrop-blur-md border border-anime-border/20 rounded-xl shadow-xl z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                            <div className="p-1 space-y-0.5">
+                                <button onClick={() => { setTheme('dark'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'dark' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                    <Moon size={14} /> Dark
+                                </button>
+                                <button onClick={() => { setTheme('light'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'light' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                    <Sun size={14} /> Light
+                                </button>
+                                <button onClick={() => { setTheme('read'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'read' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                    <BookOpen size={14} /> Read
+                                </button>
+                                <button onClick={() => { setTheme('black'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'black' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                    <div className="w-3.5 h-3.5 rounded-full bg-black border border-white/20" /> Black
+                                </button>
+                                <button onClick={() => { setTheme('white'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'white' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                    <div className="w-3.5 h-3.5 rounded-full bg-white border border-black/20" /> White
+                                </button>
+                            </div>
+                        </div>
+                     </>
+                 )}
+             </div>
           </div>
         </header>
 
@@ -1298,7 +1330,7 @@ const App: React.FC = () => {
                              </div>
 
                              <Button onClick={handleGenerateQuiz} disabled={loading} className="w-full py-4 text-lg shadow-xl shadow-anime-primary/20">
-                                 {loading ? <Loader2 className="animate-spin" /> : 'Start Quiz'}
+                                 {loading ? <Loader2 className="animate-spin" /> : (quizSettings.type === 'multiple-choice' ? 'Start Quiz' : 'Start Question')}
                              </Button>
                         </div>
                     </Card>
