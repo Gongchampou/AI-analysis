@@ -837,14 +837,16 @@ const App: React.FC = () => {
       </div>
     );
   }
-
+  //main 
+  //============================================================================================
+//================================================================================================
   return (
     <div className="flex h-screen overflow-hidden bg-anime-bg text-anime-text-main font-sans transition-colors duration-500">
       {renderSidebar()}
 
       <main className="flex-1 relative overflow-hidden flex flex-col bg-anime-bg transition-colors duration-500">
         {/* Header */}
-        <header className="h-20 border-b border-anime-border/20 bg-anime-surface/80 backdrop-blur-md flex items-center justify-between px-8 z-10 shrink-0 transition-colors duration-500">
+        <header className="h-16 border-b-[3px] border-anime-border/40 bg-anime-surface/80 backdrop-blur-md flex items-center justify-between px-8 z-10 shrink-0 transition-colors duration-500">
           <div className="flex items-center gap-4 overflow-hidden">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-anime-primary to-anime-secondary flex items-center justify-center shrink-0 shadow-lg">
                <FileType className="text-white" size={20} />
