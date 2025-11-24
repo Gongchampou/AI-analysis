@@ -917,8 +917,8 @@ const App: React.FC = () => {
         {!loading && (
           <>
             {/* Left Side - 80% - Description & Decoration */}
-            <div className="w-4/5 flex items-center justify-center p-8 lg:p-12 relative z-10">
-              <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-left duration-700">
+            <div className="w-4/5 flex flex-col justify-between p-8 lg:p-12 py-16 relative z-10">
+              <div className="space-y-12 animate-in fade-in slide-in-from-left duration-700">
                 {/* Hero Section */}
                 <div className="space-y-6">
                   <div className="inline-flex items-center gap-3 px-4 py-2 bg-anime-surface/80 backdrop-blur-sm border border-anime-border/20 rounded-full shadow-lg">
@@ -947,13 +947,13 @@ const App: React.FC = () => {
                     AI-Powered Document Analysis for <span className="text-anime-primary font-semibold">Students</span>, <span className="text-anime-secondary font-semibold">Universities</span> & <span className="text-anime-accent font-semibold">Educators</span>
                   </p>
 
-                  <p className="text-lg text-anime-text-muted/80 leading-relaxed max-w-2xl">
+                  <p className="text-lg text-anime-text-muted/80 leading-relaxed max-w-3xl">
                     Transform your study materials into interactive learning experiences. Upload lecture notes, research papers, textbooks, or any document and let AI help you understand, remember, and master the content.
                   </p>
                 </div>
 
                 {/* Benefits Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="backdrop-blur-xl border-2 border-anime-border/30 rounded-2xl p-6 hover:border-anime-primary/70 transition-all duration-300 hover:shadow-lg hover:shadow-anime-primary/20 group" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
                     <div className="w-12 h-12 backdrop-blur-md border-2 border-anime-primary/50 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
                       <Sparkles className="text-anime-primary" size={24} />
@@ -978,17 +978,17 @@ const App: React.FC = () => {
                     <p className="text-sm text-anime-text-muted leading-relaxed">Auto-generated quizzes and flashcards to reinforce your learning</p>
                   </div>
                 </div>
+              </div>
 
-                {/* Footer Info */}
-                <div className="space-y-2 text-sm text-anime-text-muted/70 pt-4">
-                  <p className="flex items-center gap-2">
-                    <AlertCircle size={14} />
-                    <span>100% Free • No Sign-up Required • Your Data Stays Private</span>
-                  </p>
-                  <p className="text-xs">
-                    Made with ❤️ for students worldwide • <a href="https://github.com/Gongchampou/AI-analysis" target="_blank" rel="noopener noreferrer" className="text-anime-primary hover:text-anime-accent transition-colors underline">View Source on GitHub</a>
-                  </p>
-                </div>
+              {/* Footer Info - Pushed to Bottom */}
+              <div className="space-y-2 text-sm text-anime-text-muted/70 mt-auto">
+                <p className="flex items-center gap-2">
+                  <AlertCircle size={14} />
+                  <span>100% Free • No Sign-up Required • Your Data Stays Private</span>
+                </p>
+                <p className="text-xs">
+                  Made with ❤️ for students worldwide • <a href="https://github.com/Gongchampou/AI-analysis" target="_blank" rel="noopener noreferrer" className="text-anime-primary hover:text-anime-accent transition-colors underline">View Source on GitHub</a>
+                </p>
               </div>
             </div>
 
