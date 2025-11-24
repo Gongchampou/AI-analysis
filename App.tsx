@@ -595,7 +595,7 @@ const App: React.FC = () => {
 
   const renderSidebar = () => (
     <div 
-        className={`${isSidebarCollapsed ? 'w-20' : 'w-64'} bg-anime-surface border-r border-anime-border/20 flex flex-col py-6 gap-2 z-30 shrink-0 shadow-2xl transition-[width] duration-300 ease-in-out relative`}
+        className={`${isSidebarCollapsed ? 'w-20' : 'w-60'} bg-anime-surface border-r border-anime-border/20 flex flex-col py-6 gap-2 z-30 shrink-0 shadow-2xl transition-[width] duration-300 ease-in-out relative`}
     >
       {/* Toggle Button */}
       <button 
@@ -606,22 +606,22 @@ const App: React.FC = () => {
       </button>
 
       {/* Logo */}
-      <div className="flex items-center justify-center h-12 mb-6 overflow-hidden">
+      <div className="flex items-center justify-center h-9 mb-6 overflow-hidden">
         {isSidebarCollapsed ? (
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-anime-primary to-anime-secondary flex items-center justify-center text-white font-bold shadow-lg text-xl">
-                A
+            <div className="w-10 h-10 flex items-center justify-center text-white font-bold text-xl">
+                <svg fill="none" viewBox="0 0 70 70"><defs><radialGradient id="fleet__a" cx="0" cy="0" r="1" gradientTransform="matrix(22.35433 -20.58122 27.17129 29.51214 38.648 42.538)" gradientUnits="userSpaceOnUse"><stop offset=".771" stop-color="#001AFF"/><stop offset="1" stop-color="#8ACEFF"/></radialGradient><radialGradient id="fleet__b" cx="0" cy="0" r="1" gradientTransform="rotate(-30.543 79.837 -70.068) scale(16.777 22.1489)" gradientUnits="userSpaceOnUse"><stop offset=".719" stop-color="#FA00FF" stop-opacity="0"/><stop offset="1" stop-color="#FF00D6" stop-opacity=".44"/></radialGradient><radialGradient id="fleet__c" cx="0" cy="0" r="1" gradientTransform="rotate(49.385 -19.814 41.858) scale(47.8852)" gradientUnits="userSpaceOnUse"><stop offset=".026" stop-color="#8DFDFD"/><stop offset=".271" stop-color="#87FBFB"/><stop offset=".484" stop-color="#74D6F4"/><stop offset=".932" stop-color="#0038FF"/></radialGradient><radialGradient id="fleet__d" cx="0" cy="0" r="1" gradientTransform="rotate(137.237 9.434 23.195) scale(32.8316)" gradientUnits="userSpaceOnUse"><stop offset=".267" stop-color="#0500FF" stop-opacity="0"/><stop offset="1" stop-color="#0500FF" stop-opacity=".15"/></radialGradient><radialGradient id="fleet__e" cx="0" cy="0" r="1" gradientTransform="rotate(75.198 -4.629 32.631) scale(51.1484)" gradientUnits="userSpaceOnUse"><stop offset=".42" stop-color="#FF00E5" stop-opacity="0"/><stop offset=".774" stop-color="#FF00F5" stop-opacity=".64"/><stop offset=".899" stop-color="#BE46FF" stop-opacity=".87"/></radialGradient><radialGradient id="fleet__g" cx="0" cy="0" r="1" gradientTransform="matrix(2.73484 22.75837 -34.39872 4.13365 29.458 35.276)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00B2FF"/><stop offset=".571" stop-color="#74C5FF"/><stop offset=".979" stop-color="#9FD7FF"/></radialGradient><linearGradient id="fleet__f" x1="11.644" x2="82.363" y1="42.432" y2="43.401" gradientUnits="userSpaceOnUse"><stop offset=".432" stop-color="#FE62EE" stop-opacity="0"/><stop offset=".818" stop-color="#FD3AF5" stop-opacity=".47"/></linearGradient><linearGradient id="fleet__h" x1="33.054" x2="37.35" y1="23.191" y2="49.344" gradientUnits="userSpaceOnUse"><stop offset=".042" stop-color="#0038FF"/><stop offset=".724" stop-color="#48BFF1" stop-opacity=".59"/><stop offset="1" stop-color="#74C5FF" stop-opacity="0"/></linearGradient></defs><path fill="url(#fleet__a)" d="M65.153 30.85c0 9.496-10.163 17.194-22.7 17.194-12.536 0-22.699-7.698-22.699-17.194 0-9.496 10.163-17.194 22.7-17.194 12.536 0 22.699 7.698 22.699 17.194z"/><path fill="url(#fleet__b)" d="M65.153 30.85c0 9.496-10.163 17.194-22.7 17.194-12.536 0-22.699-7.698-22.699-17.194 0-9.496 10.163-17.194 22.7-17.194 12.536 0 22.699 7.698 22.699 17.194z"/><path fill="url(#fleet__c)" d="M66 35c0 17.12-13.88 31-31 31C17.88 66 4 52.12 4 35 4 17.88 17.88 4 35 4c8.046 3.642 16.464 17.194 19.99 21.429 3.524 4.235 12.648 9.571 8.176-1.623C65.073 26.832 66 31.852 66 35z"/><path fill="url(#fleet__d)" d="M66 35c0 17.12-13.88 31-31 31C17.88 66 4 52.12 4 35 4 17.88 17.88 4 35 4c8.046 3.642 16.464 17.194 19.99 21.429 3.524 4.235 12.648 9.571 8.176-1.623C65.073 26.832 66 31.852 66 35z"/><path fill="url(#fleet__e)" d="M66 35c0 17.12-13.88 31-31 31C17.88 66 4 52.12 4 35 4 17.88 17.88 4 35 4c8.046 3.642 16.464 17.194 19.99 21.429 3.524 4.235 12.648 9.571 8.176-1.623C65.073 26.832 66 31.852 66 35z"/><path fill="url(#fleet__f)" d="M66 35c0 17.12-13.88 31-31 31C17.88 66 4 52.12 4 35 4 17.88 17.88 4 35 4c8.046 3.642 16.464 17.194 19.99 21.429 3.524 4.235 12.648 9.571 8.176-1.623C65.073 26.832 66 31.852 66 35z"/><path fill="url(#fleet__g)" d="M56.651 39.682c1.658 7.764-6.511 16.089-18.246 18.594-11.734 2.505-22.59-1.757-24.248-9.52-1.658-7.764 6.511-16.089 18.246-18.594 11.734-2.506 22.59 1.757 24.248 9.52z"/><path fill="url(#fleet__h)" d="M56.651 39.682c1.658 7.764-6.511 16.089-18.246 18.594-11.734 2.505-22.59-1.757-24.248-9.52-1.658-7.764 6.511-16.089 18.246-18.594 11.734-2.506 22.59 1.757 24.248 9.52z"/><path fill="#D6F8F8" fill-opacity=".19" fill-rule="evenodd" d="M51.462 49.883c3.074-3.133 4.386-6.66 3.698-9.882-.688-3.223-3.326-5.907-7.411-7.51-4.073-1.6-9.412-2.037-15.028-.838-5.616 1.199-10.31 3.779-13.375 6.901-3.074 3.133-4.386 6.66-3.698 9.883.688 3.223 3.326 5.906 7.412 7.51 4.072 1.6 9.41 2.037 15.027.838 5.616-1.2 10.31-3.779 13.375-6.902zm-13.057 8.393c11.735-2.505 19.904-10.83 18.246-18.594-1.658-7.763-12.514-12.026-24.248-9.52-11.735 2.505-19.904 10.83-18.246 18.593 1.658 7.764 12.514 12.026 24.248 9.521z" clip-rule="evenodd"/></svg>
             </div>
         ) : (
             <div className="text-center whitespace-nowrap animate-in fade-in duration-300">
                 <h1 className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-anime-primary to-anime-accent filter drop-shadow-sm">
-                AniMind
+                🗺 &nbsp;&nbsp;Ani-Mind
                 </h1>
-                <p className="text-[10px] text-anime-text-muted tracking-widest uppercase opacity-70">Gemini 3 Pro</p>
+                <p className="text-[10px] text-anime-text-muted tracking-widest uppercase opacity-70"></p>
             </div>
         )}
       </div>
 
-      <div className="flex flex-col gap-2 px-3 w-full flex-1">
+      <div className="flex flex-col gap-2 px-3 w-full flex-1 font-extrabold">
         {file && (
           <>
             <SidebarItem 
@@ -677,6 +677,7 @@ const App: React.FC = () => {
   );
 
   // --- Main Content Renders ---
+  //=======================================================================================//
 
   if (mode === AppMode.UPLOAD) {
     // Handle Preview State separately for Full Screen Layout
@@ -695,8 +696,8 @@ const App: React.FC = () => {
                  </button>
             </div>
 
-             {/* Left Controls (25%) */}
-             <div className="w-full lg:w-1/4 h-full bg-anime-surface border-r border-anime-border/20 p-8 flex flex-col justify-center z-20 shadow-2xl relative">
+             {/* Left Controls (15%) */}
+             <div className="w-full lg:w-1/6 h-full bg-anime-surface border-r border-anime-border/20 p-8 flex flex-col justify-center z-20 shadow-2xl relative">
                 <div className="mb-auto">
                    <Badge>Preview Mode</Badge>
                 </div>
@@ -742,9 +743,9 @@ const App: React.FC = () => {
                 </div>
              </div>
 
-             {/* Right Preview (75%) - Full Screen, No Padding */}
-             <div className="w-full lg:w-3/4 h-full bg-anime-bg/50 relative flex flex-col">
-                 <div className="w-full h-full bg-white/5 backdrop-blur-sm relative flex flex-col">
+             {/* Right Preview (85%) - Full Screen, No Padding */}
+             <div className="w-full lg:w-5/6 h-full bg-anime-bg/50 relative flex flex-col p-2">
+                 <div className="w-full h-full bg-white/5 backdrop-blur-sm relative flex flex-col border-2 border-anime-border/20 rounded-1.5xl overflow-hidden shadow-2xl">
                      {previewFile.mimeType === 'application/pdf' ? (
                         <iframe
                             src={`data:application/pdf;base64,${previewFile.data}`}
@@ -804,15 +805,15 @@ const App: React.FC = () => {
                <div>
                  <div className="text-center mb-10 pt-10">
                    <h2 className="text-5xl font-extrabold text-anime-text-main mb-4 tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-anime-text-main to-anime-text-muted">
-                       AniMind
+                       Ani-Mind
                    </h2>
                    <p className="text-lg text-anime-text-muted font-light">
-                       Advanced AI Document Analysis & Learning Environment
+                       Upload your document and let Ani-Mind analyze it for you.
                    </p>
                  </div>
-                 <div className="border-2 border-dashed border-anime-border/20 rounded-3xl p-12 flex flex-col items-center justify-center hover:border-anime-primary/50 transition-all duration-500 bg-anime-bg/20 group hover:bg-anime-bg/40 mx-8 mb-8">
+                 <div className="border-2 border-dashed border-anime-border/20 rounded-2xl p-10 flex flex-col items-center justify-center hover:border-anime-primary/100 transition-all duration-500 bg-anime-bg/20 group hover:bg-anime-bg/40 mx-8 mb-8">
                    <div className="w-24 h-24 bg-gradient-to-br from-anime-surface to-anime-bg rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-lg group-hover:shadow-anime-primary/25 border border-anime-border/10">
-                     <Upload className="text-anime-primary group-hover:text-anime-accent transition-colors" size={40} />
+                     <Upload className="text-anime-primary group-hover:text-anime-accent transition-colors" size={50} />
                    </div>
                    <label className="cursor-pointer relative group-hover:-translate-y-1 transition-transform">
                      <span className="bg-gradient-to-r from-anime-primary to-anime-secondary text-white px-10 py-4 rounded-full font-bold shadow-lg shadow-anime-primary/25 hover:shadow-anime-primary/50 transition-all text-lg">
