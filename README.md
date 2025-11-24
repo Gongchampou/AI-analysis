@@ -196,7 +196,7 @@ This project is licensed under the MIT License.
 
 - For questions or support, please open an issue on GitHub.
 
-- [Email](mailto:gongchampou9402@gmail.com)
+- [Email](mailto:gongchampou9402@gmail.com): gongchampou9402@gmail.com
 
 ---
 
