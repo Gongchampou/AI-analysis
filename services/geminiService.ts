@@ -32,7 +32,7 @@ export const analyzeFileContent = async (file: FileContext): Promise<{ text: str
       "summary": "The summary..."
     }
   `;
-// gemini-2.5-pro model area.
+// gemini-2.5-pro model for analysis area.
   const response = await ai.models.generateContent({
     model: 'gemini-2.5-pro',
     contents: {

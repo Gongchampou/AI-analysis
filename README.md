@@ -162,9 +162,9 @@ Navigate using the sidebar:
 | Feature           | Model              | Reason                                                      |
 | ----------------- | ------------------ | ----------------------------------------------------------- |
 | Document Analysis | `gemini-2.5-pro` | Fast processing for text extraction and summarization       |
-| Chat              | `gemini-2.5-pro`   | Advanced reasoning for complex conversations and follow-ups |
+| Chat              | `gemini-2.5-flash`   | Advanced reasoning for complex conversations and follow-ups |
 | Quiz Generation   | `gemini-2.5-pro` | Quick generation of questions with good quality             |
-| Flashcards        | `gemini-2.5-pro` | Efficient Q&A pair creation                                 |
+| Flashcards        | `gemini-2.5-flash` | Efficient Q&A pair creation                                 |
 
 **Why these choices?**
 
