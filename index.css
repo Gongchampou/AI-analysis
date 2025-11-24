@@ -44,6 +44,39 @@
   --border-rgb: 88 110 117;
 }
 
+:root.theme-black {
+  --bg-rgb: 0 0 0; /* Pure Black */
+  --surface-rgb: 0 0 0; /* Pure Black (Wireframe) */
+  --primary-rgb: 255 255 255; /* White */
+  --secondary-rgb: 255 255 255; /* White */
+  --accent-rgb: 255 255 255; /* White */
+  --text-main-rgb: 255 255 255; /* White */
+  --text-muted-rgb: 150 150 150; /* Light Gray */
+  --border-rgb: 255 255 255; /* White Borders */
+}
+
+:root.theme-white {
+  --bg-rgb: 255 255 255; /* Pure White */
+  --surface-rgb: 255 255 255; /* Pure White (Wireframe) */
+  --primary-rgb: 0 0 0; /* Black */
+  --secondary-rgb: 0 0 0; /* Black */
+  --accent-rgb: 0 0 0; /* Black */
+  --text-main-rgb: 0 0 0; /* Black */
+  --text-muted-rgb: 100 100 100; /* Gray */
+  --border-rgb: 0 0 0; /* Black Borders */
+}
+
+/* Glass Buttons for Monochrome Themes */
+:root.theme-black button,
+:root.theme-white button {
+  background-color: transparent !important;
+  background-image: none !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgb(var(--border-rgb)) !important;
+  color: rgb(var(--text-main-rgb)) !important;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;

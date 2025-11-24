@@ -177,6 +177,8 @@ const App: React.FC = () => {
     setTheme(prev => {
       if (prev === 'dark') return 'light';
       if (prev === 'light') return 'read';
+      if (prev === 'read') return 'black';
+      if (prev === 'black') return 'white';
       return 'dark';
     });
   };
@@ -864,6 +866,8 @@ const App: React.FC = () => {
                  {theme === 'dark' && <Moon size={18} className="text-anime-accent" />}
                  {theme === 'light' && <Sun size={18} className="text-orange-500" />}
                  {theme === 'read' && <BookOpen size={18} className="text-amber-700" />}
+                 {theme === 'black' && <div className="w-[18px] h-[18px] rounded-full bg-black border border-white/20" />}
+                 {theme === 'white' && <div className="w-[18px] h-[18px] rounded-full bg-white border border-black/20" />}
              </button>
           </div>
         </header>

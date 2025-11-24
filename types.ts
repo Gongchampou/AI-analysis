@@ -7,7 +7,7 @@ export enum AppMode {
   FLASHCARDS = 'FLASHCARDS'
 }
 
-export type Theme = 'dark' | 'light' | 'read';
+export type Theme = 'dark' | 'light' | 'read' | 'black' | 'white';
 
 export interface DocumentSection {
   title: string;
