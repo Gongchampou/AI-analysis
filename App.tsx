@@ -741,11 +741,43 @@ const App: React.FC = () => {
 
              {/* Theme Toggle */}
             <div className="absolute top-6 right-6 z-50">
-                 <button onClick={cycleTheme} className="p-3 rounded-full bg-anime-surface border border-anime-border/10 hover:bg-anime-border/20 transition-colors shadow-xl">
-                     {theme === 'dark' && <Moon size={24} className="text-anime-accent" />}
-                     {theme === 'light' && <Sun size={24} className="text-orange-500" />}
-                     {theme === 'read' && <BookOpen size={24} className="text-amber-700" />}
-                 </button>
+                 <div className="relative">
+                     <button 
+                        onClick={() => setIsThemeDropdownOpen(!isThemeDropdownOpen)} 
+                        className="p-3 rounded-full bg-anime-surface border border-anime-border/10 hover:bg-anime-border/20 transition-colors shadow-xl flex items-center justify-center"
+                     >
+                         {theme === 'dark' && <Moon size={24} className="text-anime-accent" />}
+                         {theme === 'light' && <Sun size={24} className="text-orange-500" />}
+                         {theme === 'read' && <BookOpen size={24} className="text-amber-700" />}
+                         {theme === 'black' && <div className="w-[24px] h-[24px] rounded-full bg-black border border-white/20" />}
+                         {theme === 'white' && <div className="w-[24px] h-[24px] rounded-full bg-white border border-black/20" />}
+                     </button>
+
+                     {isThemeDropdownOpen && (
+                         <>
+                            <div className="fixed inset-0 z-40" onClick={() => setIsThemeDropdownOpen(false)}></div>
+                            <div className="absolute right-0 top-full mt-2 w-32 bg-anime-surface/90 backdrop-blur-md border border-anime-border/20 rounded-xl shadow-xl z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                                <div className="p-1 space-y-0.5">
+                                    <button onClick={() => { setTheme('dark'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'dark' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                        <Moon size={14} /> Dark
+                                    </button>
+                                    <button onClick={() => { setTheme('light'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'light' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                        <Sun size={14} /> Light
+                                    </button>
+                                    <button onClick={() => { setTheme('read'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'read' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                        <BookOpen size={14} /> Read
+                                    </button>
+                                    <button onClick={() => { setTheme('black'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'black' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                        <div className="w-3.5 h-3.5 rounded-full bg-black border border-white/20" /> Black
+                                    </button>
+                                    <button onClick={() => { setTheme('white'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'white' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                        <div className="w-3.5 h-3.5 rounded-full bg-white border border-black/20" /> White
+                                    </button>
+                                </div>
+                            </div>
+                         </>
+                     )}
+                 </div>
             </div>
 
              {/* Left Controls (15%) */}
@@ -839,11 +871,43 @@ const App: React.FC = () => {
         
         {/* Theme Toggle in Upload Mode */}
         <div className="absolute top-6 right-6 z-50">
-             <button onClick={cycleTheme} className="p-3 rounded-full bg-anime-surface border border-anime-border/10 hover:bg-anime-border/20 transition-colors shadow-xl">
-                 {theme === 'dark' && <Moon size={24} className="text-anime-accent" />}
-                 {theme === 'light' && <Sun size={24} className="text-orange-500" />}
-                 {theme === 'read' && <BookOpen size={24} className="text-amber-700" />}
-             </button>
+             <div className="relative">
+                 <button 
+                    onClick={() => setIsThemeDropdownOpen(!isThemeDropdownOpen)} 
+                    className="p-3 rounded-full bg-anime-surface border border-anime-border/10 hover:bg-anime-border/20 transition-colors shadow-xl flex items-center justify-center"
+                 >
+                     {theme === 'dark' && <Moon size={24} className="text-anime-accent" />}
+                     {theme === 'light' && <Sun size={24} className="text-orange-500" />}
+                     {theme === 'read' && <BookOpen size={24} className="text-amber-700" />}
+                     {theme === 'black' && <div className="w-[24px] h-[24px] rounded-full bg-black border border-white/20" />}
+                     {theme === 'white' && <div className="w-[24px] h-[24px] rounded-full bg-white border border-black/20" />}
+                 </button>
+
+                 {isThemeDropdownOpen && (
+                     <>
+                        <div className="fixed inset-0 z-40" onClick={() => setIsThemeDropdownOpen(false)}></div>
+                        <div className="absolute right-0 top-full mt-2 w-32 bg-anime-surface/90 backdrop-blur-md border border-anime-border/20 rounded-xl shadow-xl z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                            <div className="p-1 space-y-0.5">
+                                <button onClick={() => { setTheme('dark'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'dark' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                    <Moon size={14} /> Dark
+                                </button>
+                                <button onClick={() => { setTheme('light'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'light' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                    <Sun size={14} /> Light
+                                </button>
+                                <button onClick={() => { setTheme('read'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'read' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                    <BookOpen size={14} /> Read
+                                </button>
+                                <button onClick={() => { setTheme('black'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'black' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                    <div className="w-3.5 h-3.5 rounded-full bg-black border border-white/20" /> Black
+                                </button>
+                                <button onClick={() => { setTheme('white'); setIsThemeDropdownOpen(false); }} className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${theme === 'white' ? 'bg-anime-primary/10 text-anime-primary' : 'text-anime-text-muted hover:bg-anime-bg hover:text-anime-text-main'}`}>
+                                    <div className="w-3.5 h-3.5 rounded-full bg-white border border-black/20" /> White
+                                </button>
+                            </div>
+                        </div>
+                     </>
+                 )}
+             </div>
         </div>
 
         <Card className="z-10 border-anime-primary/20 bg-anime-surface/90 backdrop-blur-xl shadow-2xl w-full max-w-2xl relative overflow-hidden transition-all duration-500 ease-out p-0">
