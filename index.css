@@ -89,7 +89,7 @@
   color: rgb(var(--text-main-rgb)) !important;
 }
 
-/* Override gradient buttons (like "Select Document") in mon ochrome themes */
+/* Override gradient buttons (like "Select Document") in monochrome themes */
 :root.theme-black span[class*="bg-gradient"],
 :root.theme-white span[class*="bg-gradient"] {
   background-image: none !important;
@@ -98,6 +98,23 @@
   color: rgb(var(--text-main-rgb)) !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+/* Glassmorphism for landing page cards - ALL THEMES */
+.bg-anime-surface\/5,
+.bg-anime-surface\/10,
+.bg-anime-surface\/20 {
+  background-color: rgba(var(--surface-rgb), 0.05) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+.bg-anime-surface\/10 {
+  background-color: rgba(var(--surface-rgb), 0.1) !important;
+}
+
+.bg-anime-surface\/20 {
+  background-color: rgba(var(--surface-rgb), 0.2) !important;
 }
 
 

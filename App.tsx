@@ -866,7 +866,7 @@ const App: React.FC = () => {
     }
 
     return (
-      <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-anime-bg transition-colors duration-500">
+      <div className="min-h-screen flex relative overflow-hidden bg-anime-bg transition-colors duration-500">
         {/* Decorative background blobs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-anime-primary/10 rounded-full blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-anime-secondary/10 rounded-full blur-3xl animate-float"></div>
@@ -912,44 +912,160 @@ const App: React.FC = () => {
              </div>
         </div>
 
-        <Card className="z-10 border-anime-primary/20 bg-anime-surface/90 backdrop-blur-xl shadow-2xl w-full max-w-2xl relative overflow-hidden transition-all duration-500 ease-out p-0">
-          {/* Decorative grid */}
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
-          
-          <div className="relative z-10 flex flex-col h-full p-8">
-             {loading ? (
-               <PremiumLoader text={loadingText} />
-             ) : (
-               <div>
-                 <div className="text-center mb-10 pt-10">
-                   <h2 className="text-5xl font-extrabold text-anime-text-main mb-4 tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-anime-text-main to-anime-text-muted">
-                       Ani-Mind
-                   </h2>
-                   <p className="text-lg text-anime-text-muted font-light">
-                       Upload your document and let Ani-Mind analyze it for you.
-                   </p>
-                 </div>
-                 <div className="border-2 border-dashed border-anime-border/20 rounded-2xl p-10 flex flex-col items-center justify-center hover:border-anime-primary/100 transition-all duration-500 bg-anime-bg/20 group hover:bg-anime-bg/40 mx-8 mb-8">
-                   <div className="w-24 h-24 bg-gradient-to-br from-anime-surface to-anime-bg rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-lg group-hover:shadow-anime-primary/25 border border-anime-border/10">
-                     <Upload className="text-anime-primary group-hover:text-anime-accent transition-colors" size={50} />
-                   </div>
-                   <label className="cursor-pointer relative group-hover:-translate-y-1 transition-transform">
-                     <span className="bg-gradient-to-r from-anime-primary to-anime-secondary text-white px-10 py-4 rounded-full font-bold shadow-lg shadow-anime-primary/25 hover:shadow-anime-primary/50 transition-all text-lg">
-                       Select Document
-                     </span>
-                     <input type="file" className="hidden" onChange={handleFileUpload} accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.jpg,.jpeg,.png,.webp" />
-                   </label>
-                   <div className="mt-8 flex gap-4 text-anime-text-muted text-sm">
-                     <span className="flex items-center gap-1"><FileType size={14}/> PDF</span>
-                     <span className="flex items-center gap-1"><FileType size={14}/> Word</span>
-                     <span className="flex items-center gap-1"><ImageIcon size={14}/> Images</span>
-                     <span className="flex items-center gap-1"><FileText size={14}/> Text</span>
-                   </div>
-                 </div>
-               </div>
-             )}
-          </div>
-        </Card>
+        {loading && <PremiumLoader text={loadingText} />}
+
+        {!loading && (
+          <>
+            {/* Left Side - 80% - Description & Decoration */}
+            <div className="w-4/5 flex items-center justify-center p-8 lg:p-12 relative z-10">
+              <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-left duration-700">
+                {/* Hero Section */}
+                <div className="space-y-6">
+                  <div className="inline-flex items-center gap-3 px-4 py-2 bg-anime-surface/80 backdrop-blur-sm border border-anime-border/20 rounded-full shadow-lg">
+                    <Sparkles size={18} className="text-anime-primary animate-pulse" />
+                    <span className="text-sm font-semibold text-anime-text-main">Open Source • AI-Powered • Free Forever</span>
+                    <a 
+                      href="https://github.com/Gongchampou/AI-analysis" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 px-3 py-1 bg-anime-primary/10 hover:bg-anime-primary/20 rounded-full transition-colors text-xs font-bold text-anime-primary"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                      Star on GitHub
+                    </a>
+                  </div>
+
+                  <h1 className="text-6xl lg:text-7xl xl:text-8xl font-extrabold text-anime-text-main tracking-tight leading-tight">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-anime-primary via-anime-secondary to-anime-accent">
+                      Ani-Mind
+                    </span>
+                  </h1>
+                  
+                  <p className="text-2xl lg:text-3xl text-anime-text-muted font-light leading-relaxed">
+                    AI-Powered Document Analysis for <span className="text-anime-primary font-semibold">Students</span>, <span className="text-anime-secondary font-semibold">Universities</span> & <span className="text-anime-accent font-semibold">Educators</span>
+                  </p>
+
+                  <p className="text-lg text-anime-text-muted/80 leading-relaxed max-w-2xl">
+                    Transform your study materials into interactive learning experiences. Upload lecture notes, research papers, textbooks, or any document and let AI help you understand, remember, and master the content.
+                  </p>
+                </div>
+
+                {/* Benefits Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+                  <div className="backdrop-blur-xl border-2 border-anime-border/30 rounded-2xl p-6 hover:border-anime-primary/70 transition-all duration-300 hover:shadow-lg hover:shadow-anime-primary/20 group" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                    <div className="w-12 h-12 backdrop-blur-md border-2 border-anime-primary/50 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                      <Sparkles className="text-anime-primary" size={24} />
+                    </div>
+                    <h3 className="text-lg font-bold text-anime-text-main mb-2">Smart Analysis</h3>
+                    <p className="text-sm text-anime-text-muted leading-relaxed">AI breaks down complex documents into digestible summaries and key points</p>
+                  </div>
+
+                  <div className="backdrop-blur-xl border-2 border-anime-border/30 rounded-2xl p-6 hover:border-anime-secondary/70 transition-all duration-300 hover:shadow-lg hover:shadow-anime-secondary/20 group" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                    <div className="w-12 h-12 backdrop-blur-md border-2 border-anime-secondary/50 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                      <MessageSquare className="text-anime-secondary" size={24} />
+                    </div>
+                    <h3 className="text-lg font-bold text-anime-text-main mb-2">Interactive Chat</h3>
+                    <p className="text-sm text-anime-text-muted leading-relaxed">Ask questions about your documents and get instant, contextual answers</p>
+                  </div>
+
+                  <div className="backdrop-blur-xl border-2 border-anime-border/30 rounded-2xl p-6 hover:border-anime-accent/70 transition-all duration-300 hover:shadow-lg hover:shadow-anime-accent/20 group" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                    <div className="w-12 h-12 backdrop-blur-md border-2 border-anime-accent/50 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                      <Play className="text-anime-accent" size={24} />
+                    </div>
+                    <h3 className="text-lg font-bold text-anime-text-main mb-2">Test Yourself</h3>
+                    <p className="text-sm text-anime-text-muted leading-relaxed">Auto-generated quizzes and flashcards to reinforce your learning</p>
+                  </div>
+                </div>
+
+                {/* Footer Info */}
+                <div className="space-y-2 text-sm text-anime-text-muted/70 pt-4">
+                  <p className="flex items-center gap-2">
+                    <AlertCircle size={14} />
+                    <span>100% Free • No Sign-up Required • Your Data Stays Private</span>
+                  </p>
+                  <p className="text-xs">
+                    Made with ❤️ for students worldwide • <a href="https://github.com/Gongchampou/AI-analysis" target="_blank" rel="noopener noreferrer" className="text-anime-primary hover:text-anime-accent transition-colors underline">View Source on GitHub</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - 20% - File Input Area */}
+            <div className="w-1/5 bg-anime-surface/20 backdrop-blur-md border-l border-anime-border/20 flex items-center justify-center p-6 relative z-10 shadow-2xl">
+              <div className="w-full space-y-6 animate-in fade-in slide-in-from-right duration-700">
+                <div className="text-center space-y-3">
+                  <div className="w-20 h-20 backdrop-blur-md border-2 border-anime-border/40 rounded-2xl flex items-center justify-center mx-auto shadow-lg transform hover:scale-110 transition-transform hover:border-anime-primary/70" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                    <Upload className="text-anime-text-main" size={40} />
+                  </div>
+                  <h2 className="text-xl font-bold text-anime-text-main">Get Started</h2>
+                  <p className="text-xs text-anime-text-muted leading-relaxed">Upload your document to begin</p>
+                </div>
+
+                {/* Upload Button */}
+                <label className="block cursor-pointer group">
+                  <div className="backdrop-blur-xl border-2 border-anime-border/40 text-anime-text-main px-6 py-4 rounded-xl font-bold shadow-lg hover:border-anime-primary/70 transition-all text-center group-hover:scale-105 active:scale-95" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                    <span className="text-sm">Select File</span>
+                  </div>
+                  <input type="file" className="hidden" onChange={handleFileUpload} accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.jpg,.jpeg,.png,.webp" />
+                </label>
+
+                {/* Supported Types */}
+                <div className="space-y-3">
+                  <p className="text-xs font-semibold text-anime-accent uppercase tracking-wider text-center">Supported Files</p>
+                  <div className="grid grid-cols-2 gap-2 text-xs text-anime-text-muted">
+                    <div className="flex items-center gap-1 backdrop-blur-md border border-anime-border/30 rounded-lg p-2" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                      <FileType size={12} className="text-anime-primary shrink-0" />
+                      <span>PDF</span>
+                    </div>
+                    <div className="flex items-center gap-1 backdrop-blur-md border border-anime-border/30 rounded-lg p-2" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                      <FileType size={12} className="text-anime-secondary shrink-0" />
+                      <span>Word</span>
+                    </div>
+                    <div className="flex items-center gap-1 backdrop-blur-md border border-anime-border/30 rounded-lg p-2" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                      <ImageIcon size={12} className="text-anime-accent shrink-0" />
+                      <span>Image</span>
+                    </div>
+                    <div className="flex items-center gap-1 backdrop-blur-md border border-anime-border/30 rounded-lg p-2" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                      <FileText size={12} className="text-anime-text-main shrink-0" />
+                      <span>Text</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Perfect For Section */}
+                <div className="backdrop-blur-xl rounded-xl p-4 border-2 border-anime-border/30 space-y-2" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                  <p className="text-xs font-semibold text-anime-primary uppercase tracking-wider flex items-center gap-1">
+                    <Sparkles size={10} /> Perfect For:
+                  </p>
+                  <div className="space-y-1.5 text-xs text-anime-text-muted">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle size={10} className="text-anime-primary shrink-0" />
+                      <span>Lecture Notes</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle size={10} className="text-anime-primary shrink-0" />
+                      <span>Research Papers</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle size={10} className="text-anime-primary shrink-0" />
+                      <span>Textbooks</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle size={10} className="text-anime-primary shrink-0" />
+                      <span>Study Guides</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle size={10} className="text-anime-primary shrink-0" />
+                      <span>Course Materials</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     );
   }
