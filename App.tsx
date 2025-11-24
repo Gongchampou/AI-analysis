@@ -959,7 +959,7 @@ const App: React.FC = () => {
                       <Sparkles className="text-anime-primary" size={24} />
                     </div>
                     <h3 className="text-lg font-bold text-anime-text-main mb-2">Smart Analysis</h3>
-                    <p className="text-sm text-anime-text-muted leading-relaxed">AI breaks down complex documents into digestible summaries and key points</p>
+                    <p className="text-sm text-anime-text-muted leading-relaxed">AI breaks down complex documents into digestible summaries, key points and Branch Chart</p>
                   </div>
 
                   <div className="backdrop-blur-xl border-2 border-anime-border/30 rounded-2xl p-6 hover:border-anime-secondary/70 transition-all duration-300 hover:shadow-lg hover:shadow-anime-secondary/20 group" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
@@ -985,6 +985,10 @@ const App: React.FC = () => {
                 <p className="flex items-center gap-2">
                   <AlertCircle size={14} />
                   <span>100% Free • No Sign-up Required • Your Data Stays Private</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <AlertCircle size={14} />
+                  <span>20% AI • 80% Human • Created</span>
                 </p>
                 <p className="text-xs">
                   Made with ❤️ for students worldwide • <a href="https://github.com/Gongchampou/AI-analysis" target="_blank" rel="noopener noreferrer" className="text-anime-primary hover:text-anime-accent transition-colors underline">View Source on GitHub</a>
@@ -1015,19 +1019,19 @@ const App: React.FC = () => {
                 <div className="space-y-3">
                   <p className="text-xs font-semibold text-anime-accent uppercase tracking-wider text-center">Supported Files</p>
                   <div className="grid grid-cols-2 gap-2 text-xs text-anime-text-muted">
-                    <div className="flex items-center gap-1 backdrop-blur-md border border-anime-border/30 rounded-lg p-2" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                    <div className="flex items-center gap-1 backdrop-blur-md border border-anime-border/5 rounded-lg p-2" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
                       <FileType size={12} className="text-anime-primary shrink-0" />
                       <span>PDF</span>
                     </div>
-                    <div className="flex items-center gap-1 backdrop-blur-md border border-anime-border/30 rounded-lg p-2" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                    <div className="flex items-center gap-1 backdrop-blur-md border border-anime-border/5 rounded-lg p-2" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
                       <FileType size={12} className="text-anime-secondary shrink-0" />
                       <span>Word</span>
                     </div>
-                    <div className="flex items-center gap-1 backdrop-blur-md border border-anime-border/30 rounded-lg p-2" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                    <div className="flex items-center gap-1 backdrop-blur-md border border-anime-border/5 rounded-lg p-2" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
                       <ImageIcon size={12} className="text-anime-accent shrink-0" />
                       <span>Image</span>
                     </div>
-                    <div className="flex items-center gap-1 backdrop-blur-md border border-anime-border/30 rounded-lg p-2" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                    <div className="flex items-center gap-1 backdrop-blur-md border border-anime-border/5 rounded-lg p-2" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
                       <FileText size={12} className="text-anime-text-main shrink-0" />
                       <span>Text</span>
                     </div>
