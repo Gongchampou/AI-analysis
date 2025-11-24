@@ -787,7 +787,7 @@ const App: React.FC = () => {
                 </div>
                 
                 <div className="my-8 animate-in slide-in-from-left-4 duration-500">
-                    <div className="w-24 h-24 bg-gradient-to-br from-anime-primary to-anime-secondary rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-anime-primary/20 ring-4 ring-anime-border/5">
+                    <div className="header-icon-box w-24 h-24 bg-gradient-to-br from-anime-primary to-anime-secondary rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-anime-primary/20 ring-4 ring-anime-border/5">
                         {previewFile.mimeType.startsWith('image/') ? <ImageIcon size={48} className="text-white"/> : <FileText size={48} className="text-white"/>}
                     </div>
                     
