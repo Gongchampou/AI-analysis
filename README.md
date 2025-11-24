@@ -27,7 +27,7 @@ A powerful AI-powered document analysis and learning platform built with React, 
 - **Source Citations**: Grounded answers with clickable source links
 - **Markdown Support**: Rich text formatting in responses
 
-**AI Model**: `gemini-2.5-Pro` (Advanced reasoning and conversation)
+**AI Model**: `gemini-2.5-flash` (Advanced reasoning and conversation)
 
 ### 📝 Smart Quizzes
 
@@ -38,7 +38,7 @@ A powerful AI-powered document analysis and learning platform built with React, 
 - **Instant Feedback**: See scores and correct answers immediately
 - **Retry Option**: Take quizzes multiple times to improve
 
-**AI Model**: `gemini-2.5-Pro` (Quick quiz generation)
+**AI Model**: `gemini-2.5-pro` (Quick quiz generation)
 
 ### 🎴 Flashcards
 
@@ -48,7 +48,7 @@ A powerful AI-powered document analysis and learning platform built with React, 
 - **Shuffle Option**: Randomize card order for better retention
 - **Smart Pacing**: Navigate through cards at your own speed
 
-**AI Model**: `gemini-2.5-Pro` (Efficient Q&A pair generation)
+**AI Model**: `gemini-2.5-flash` (Efficient Q&A pair generation)
 
 ### 🎨 Themes
 
