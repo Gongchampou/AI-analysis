@@ -1009,8 +1009,8 @@ const App: React.FC = () => {
 
                 {/* Upload Button */}
                 <label className="block cursor-pointer group">
-                  <div className="backdrop-blur-xl border-2 border-anime-border/40 text-anime-text-main px-6 py-4 rounded-xl font-bold shadow-lg hover:border-anime-primary/70 transition-all text-center group-hover:scale-105 active:scale-95" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
-                    <span className="text-sm">Select File</span>
+                  <div className="backdrop-blur-xl border-2 border-anime-border/40 text-anime-text-main px-4 py-2 rounded-xl font-bold shadow-lg hover:border-anime-primary/70 transition-all text-center group-hover:scale-105 active:scale-95" style={{backgroundColor: 'rgba(0,0,0,0)'}}>
+                    <span className="text-2xl font-extrabold">Select File</span>
                   </div>
                   <input type="file" className="hidden" onChange={handleFileUpload} accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.jpg,.jpeg,.png,.webp" />
                 </label>
