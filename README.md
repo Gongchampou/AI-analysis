@@ -156,15 +156,17 @@ Navigate using the sidebar:
 - Adjust quiz difficulty levels
 
 ## 🤖 AI Models Used
+- if you wan to change the Model you can change it with your API but check that Your API is free tier or not. If Free then try to reduce the model dont go to advance model. paid API can be use to advance model.
+Check `/services/geminiService.ts` for change the Model. follow the code-base line 👇.
 
 ### Model Selection Strategy
 
-| Feature           | Model              | Reason                                                      |
-| ----------------- | ------------------ | ----------------------------------------------------------- |
-| Document Analysis | `gemini-2.5-pro` | Fast processing for text extraction and summarization       |
-| Chat              | `gemini-2.5-flash`   | Advanced reasoning for complex conversations and follow-ups |
-| Quiz Generation   | `gemini-2.5-pro` | Quick generation of questions with good quality             |
-| Flashcards        | `gemini-2.5-flash` | Efficient Q&A pair creation                                 |
+| Feature           | Model              | Reason                                                      | Change model|
+| ----------------- | ------------------ | ----------------------------------------------------------- |-------------|
+| Document Analysis | `gemini-2.5-pro` | Fast processing for text extraction and summarization       | codebase-Line 37 |
+| Chat              | `gemini-2.5-flash`   | Advanced reasoning for complex conversations and follow-ups | codebase-Line 142 |
+| Quiz Generation   | `gemini-2.5-pro` | Quick generation of questions with good quality             | codebase-Line 213 |
+| Flashcards        | `gemini-2.5-flash` | Efficient Q&A pair creation                                 | codebase-Line 270 |
 
 **Why these choices?**
 
